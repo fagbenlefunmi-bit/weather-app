@@ -7,13 +7,15 @@ function showTemperature(response) {
     let humidity=response.data.temperature.humidity;
     let windSpeedElement=document.querySelector("#wind-speed");
     let windSpeed=response.data.wind.speed;
-    console.log(response.data);
+    let iconElement=document.querySelector("#icon");
+    let icon=`<img src="${response.data.condition.icon_url}" class="current-temperature-icon">`;
     
 
     temperatureElement.innerHTML=temperature;
     descriptionElement.innerHTML=description;
     humidityElement.innerHTML=`${humidity}%` ;
     windSpeedElement.innerHTML=`${windSpeed}km/h`;
+    iconElement.innerHTML=icon;
 }
 
 function searchCity(city) {
