@@ -1,7 +1,19 @@
 function showTemperature(response) {
     let temperatureElement=document.querySelector(".current-temperature-value");
     let temperature=Math.round(response.data.temperature.current);
+    let descriptionElement=document.querySelector("#description");
+    let description=response.data.condition.description;
+    let humidityElement=document.querySelector("#humidity");
+    let humidity=response.data.temperature.humidity;
+    let windSpeedElement=document.querySelector("#wind-speed");
+    let windSpeed=response.data.wind.speed;
+    console.log(response.data);
+    
+
     temperatureElement.innerHTML=temperature;
+    descriptionElement.innerHTML=description;
+    humidityElement.innerHTML=`${humidity}%` ;
+    windSpeedElement.innerHTML=`${windSpeed}km/h`;
 }
 
 function searchCity(city) {
@@ -44,6 +56,3 @@ function date(date) {
     return `${day} ${hours}:${minutes}`;
 } 
 let currentDate=document.querySelector("#current-date");
-currentDate.innerHTML=date(new Date());
-document.getElementById("wind-speed").textContent=
-`Wind speed:${current.wind_speed_10m} km/h`;
